@@ -1,8 +1,6 @@
 import s from './App.module.scss';
 import clsx from 'clsx';
 
-import { getApiResource } from '../../utils/network';
-
 function App() {
   return (
     <>
