@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getApiResource } from '../../utils/network';
 import { API_PEOPLE } from '../../constants/api';
 import { getPeopleId, getPeopleImg } from '../../services/getPeopleData';
+import PeopleList from '../../components/PeoplePage/PeopleList';
 import s from './PeoplePage.module.scss';
 
 const PeoplePage = () => {
@@ -13,8 +14,6 @@ const PeoplePage = () => {
     const peopleList = res.results.map(({ name, url }) => {
       const id = getPeopleId(url);
       const img = getPeopleImg(id);
-
-      //   console.log(img);
 
       return {
         id,
@@ -30,18 +29,7 @@ const PeoplePage = () => {
     getResource(API_PEOPLE);
   }, []);
 
-  return (
-    <>
-      <ul>
-        {people?.map(({ id, name, img }) => (
-          <li className={s.card} key={id}>
-            <img src={img} alt={name} />
-            <p>{name}</p>
-          </li>
-        ))}
-      </ul>
-    </>
-  );
+  return <>{people && <PeopleList people={people} />}</>;
 };
 
 export default PeoplePage;
