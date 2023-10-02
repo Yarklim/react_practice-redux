@@ -1,3 +1,36 @@
-.card {
-  width: 360px;
+.listContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.listItem {
+  width: 190px;
+
+  margin-top: 20px;
+
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-white);
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.listLink {
+  color: var(--color-black);
+  text-align: center;
+}
+
+.personPhoto {
+  width: 100%;
+  height: 260px;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.itemTitle {
+  margin-top: 20px;
+  padding-bottom: 10px;
 }
