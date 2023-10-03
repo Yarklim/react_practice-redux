@@ -2,34 +2,46 @@ import { useEffect, useState } from 'react';
 import { getApiResource } from '../../utils/network';
 import { API_PEOPLE } from '../../constants/api';
 import { getPeopleId, getPeopleImg } from '../../services/getPeopleData';
+import { withErrorApi } from '../../hoc/withErrorApi';
 import PeopleList from '../../components/PeoplePage/PeopleList';
 import s from './PeoplePage.module.scss';
 
-const PeoplePage = () => {
+const PeoplePage = ({ setErrorApi }) => {
   const [people, setPeople] = useState(null);
 
   const getResource = async (url) => {
     const res = await getApiResource(url);
 
-    const peopleList = res.results.map(({ name, url }) => {
-      const id = getPeopleId(url);
-      const img = getPeopleImg(id);
+    if (res) {
+      const peopleList = res.results.map(({ name, url }) => {
+        const id = getPeopleId(url);
+        const img = getPeopleImg(id);
 
-      return {
-        id,
-        name,
-        img,
-      };
-    });
+        return {
+          id,
+          name,
+          img,
+        };
+      });
 
-    setPeople(peopleList);
+      setPeople(peopleList);
+      setErrorApi(false);
+    } else {
+      setErrorApi(true);
+    }
   };
 
   useEffect(() => {
     getResource(API_PEOPLE);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <>{people && <PeopleList people={people} />}</>;
+  return (
+    <>
+      (<h1 style={{ color: 'white' }}>Persons</h1>
+      {people && <PeopleList people={people} />})
+    </>
+  );
 };
 
-export default PeoplePage;
+export default withErrorApi(PeoplePage);
