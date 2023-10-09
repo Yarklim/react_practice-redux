@@ -38,7 +38,7 @@ const PeoplePage = ({ setErrorApi }) => {
 
   return (
     <section className={s.wrapper}>
-      (<h1 style={{ color: 'white' }}>Persons</h1>
+      (<h1 className="header-text">Persons</h1>
       {people && <PeopleList people={people} />})
     </section>
   );
