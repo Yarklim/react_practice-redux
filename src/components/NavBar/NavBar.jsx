@@ -5,13 +5,15 @@ import s from './NavBar.module.scss';
 
 const NavBar = () => {
   return (
-    <header className={s.headerNav}>
-      <NavLink to="/" className="header-text">
-        Home
-      </NavLink>
-      <NavLink to="/people" className="header-text">
-        People
-      </NavLink>
+    <header>
+      <ul className={s.headerNav}>
+        <li className={s.headerNavLink}>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li className={s.headerNavLink}>
+          <NavLink to="/people">People</NavLink>
+        </li>
+      </ul>
     </header>
   );
 };
