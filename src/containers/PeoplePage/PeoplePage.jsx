@@ -39,7 +39,14 @@ const PeoplePage = ({ setErrorApi }) => {
   return (
     <section className={s.wrapper}>
       (<h1 className="header-text">People</h1>
-      {people && <PeopleList people={people} />})
+      <div>
+        {people ? (
+          <PeopleList people={people} />
+        ) : (
+          <h2 className={s.loading}>...Loading</h2>
+        )}
+      </div>
+      )
     </section>
   );
 };
