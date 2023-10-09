@@ -6,6 +6,8 @@
 	--font-family-main: sans-serif;
 
 	--border-radius-small: 5px;
+
+	--theme-default-header: #cccc48;
 }
 
 *, ::after, ::before {
@@ -37,4 +39,16 @@ img {
 	display: block;
 	width: 100%;
 	height: auto;
+}
+
+.header-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--theme-default-header);
+  text-shadow: 0 0 2px black;
+  transition: color 400ms ease-in-out;
+
+  &:active {
+    color: aqua;
+  }
 }
