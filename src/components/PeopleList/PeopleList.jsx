@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import s from './PeopleList.module.scss';
 
 const PeopleList = ({ people }) => {
@@ -6,10 +7,10 @@ const PeopleList = ({ people }) => {
     <ul className={s.listContainer}>
       {people?.map(({ id, name, img }) => (
         <li className={s.listItem} key={id}>
-          <a className={s.listLink} href="#">
+          <Link to="#" className={s.listLink}>
             <img className={s.personPhoto} src={img} alt={name} />
             <p className={s.itemTitle}>{name}</p>
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
