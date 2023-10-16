@@ -9,6 +9,7 @@ import {
 } from '../../services/getPeopleData';
 import { withErrorApi } from '../../hoc/withErrorApi';
 import PeopleList from '../../components/PeopleList';
+import PeopleNavigation from '../../components/PeopleNavigation/PeopleNavigation';
 import s from './PeoplePage.module.scss';
 
 const PeoplePage = ({ setErrorApi }) => {
@@ -52,7 +53,12 @@ const PeoplePage = ({ setErrorApi }) => {
 
   return (
     <section className={s.wrapper}>
-      (<h1 className="header-text">People</h1>
+      <PeopleNavigation
+        getResource={getResource}
+        prevPage={prevPage}
+        nextPage={nextPage}
+        counterPage={counterPage}
+      />
       <div>
         {people ? (
           <PeopleList people={people} />
@@ -60,7 +66,6 @@ const PeoplePage = ({ setErrorApi }) => {
           <h2 className={s.loading}>...Loading</h2>
         )}
       </div>
-      )
     </section>
   );
 };
