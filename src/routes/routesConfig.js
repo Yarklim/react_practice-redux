@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
-import HomePage from '../constants/HomePage/HomePage';
+import HomePage from '../containers/HomePage/HomePage';
 import PeoplePage from '../containers/PeoplePage/PeoplePage';
 import Layout from '../components/Layout/Layout';
+import NotFoundPage from '../containers/NotFoundPage/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: '/people',
         element: <PeoplePage />,
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />,
       },
     ],
   },
