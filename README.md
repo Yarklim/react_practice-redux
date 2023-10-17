@@ -2,7 +2,7 @@
 
 # Tech Stack:  
 - React  
-- React Router Dom  
+- React Router  
 - Redux  
 - Sass 
 - Storybook  
