@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getApiResource } from '../../utils/network';
+// import { getApiResource } from '../../utils/network';
 
-import s from './PersonPage.module.scss';
+// import s from './PersonPage.module.scss';
 
 const PersonPage = () => {
   const { id } = useParams();
